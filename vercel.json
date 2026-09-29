@@ -1,3 +1,1 @@
-{
-  "$comment": "En el plan Hobby de Vercel, un cron interno mas frecuente que una vez al dia hace FALLAR el despliegue. Por eso este proyecto no declara 'crons' aqui - la sincronizacion cada hora se dispara desde un cron externo gratuito (ver README.md, seccion 6) que llama a /api/cron/sync."
-}
+{}
