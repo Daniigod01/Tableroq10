@@ -1,1 +1,10 @@
-{}
+{
+  "functions": {
+    "pages/api/cron/sync.js": {
+      "maxDuration": 60
+    },
+    "pages/api/sync-now.js": {
+      "maxDuration": 60
+    }
+  }
+}
