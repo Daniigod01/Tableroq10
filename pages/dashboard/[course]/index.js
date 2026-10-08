@@ -72,7 +72,7 @@ export default function CoursePage({ course, students, stats }) {
   const pageItems = filtered.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
 
   return (
-    <div className="container">
+    <div className="container container-wide">
       <Link href="/dashboard" className="back-link">
         Volver a cursos
       </Link>
@@ -156,7 +156,7 @@ export default function CoursePage({ course, students, stats }) {
           </div>
 
           <div className="table-scroll">
-            <table>
+            <table className="students-table">
               <thead>
                 <tr>
                   <th>Nombre</th>

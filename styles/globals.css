@@ -448,3 +448,15 @@ tbody tr:last-child td { border-bottom: none; }
 
 .sp-approx { margin-left: 4px; font-weight: 700; color: var(--amber); cursor: help; }
 .sp-approx-note { margin: 0 0 6px; padding: 10px 14px; background: var(--amber-bg); color: #6b4a0a; border-radius: 6px; font-size: var(--text-xs); line-height: 1.45; }
+
+/* Tabla "Detalle por estudiante": más ancha y sin cortar columnas */
+.container-wide { max-width: 1320px; }
+.students-table th, .students-table td { padding: 11px 12px; }
+.students-table td:nth-child(1) { min-width: 190px; }
+.students-table td:nth-child(2),
+.students-table td:nth-child(4),
+.students-table td:nth-child(5),
+.students-table td:nth-child(6),
+.students-table td:nth-child(7),
+.students-table td:nth-child(8) { white-space: nowrap; }
+.students-table td:nth-child(3) { max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
