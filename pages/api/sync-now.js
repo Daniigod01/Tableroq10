@@ -17,11 +17,15 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { courseList, skipped } = await runSyncAndTrackErrors();
+    // ?force=1 reprocesa todos los cursos aunque sus archivos no hayan cambiado
+    const force = req.query.force === '1';
+    const { courseList, skipped, unchanged, updated } = await runSyncAndTrackErrors({ force });
     res.status(200).json({
       ok: true,
       cursosActualizados: courseList,
       carpetasOmitidas: skipped,
+      cursosSinCambios: unchanged,
+      cursosReprocesados: updated,
     });
   } catch (err) {
     console.error('Error en sincronización manual:', err);

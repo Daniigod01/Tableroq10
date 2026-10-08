@@ -94,7 +94,7 @@ export default function DashboardHome({ courses, lastSync }) {
               onClick={handleSyncNow}
               disabled={syncing}
             >
-              {syncing ? 'Actualizando…' : 'Actualizar ahora'}
+              {syncing ? 'Actualizando… puede tardar un momento' : 'Actualizar ahora'}
             </button>
             {syncMessage && (
               <div className={`sync-message sync-message-${syncMessage.type}`}>
