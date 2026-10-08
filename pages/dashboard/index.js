@@ -32,7 +32,17 @@ export default function DashboardHome({ courses, lastSync }) {
     setSyncMessage(null);
     try {
       const res = await fetch('/api/sync-now', { method: 'POST' });
-      const data = await res.json();
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error(
+          res.status === 504
+            ? 'La sincronización tardó demasiado. Intenta de nuevo en un momento.'
+            : 'El servidor devolvió una respuesta inesperada.'
+        );
+      }
       if (!res.ok || !data.ok) {
         throw new Error(data.error || data.message || 'No se pudo actualizar');
       }
