@@ -460,3 +460,50 @@ tbody tr:last-child td { border-bottom: none; }
 .students-table td:nth-child(7),
 .students-table td:nth-child(8) { white-space: nowrap; }
 .students-table td:nth-child(3) { max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---------------------------------------------------------------
+   Portada: banner con logos, cifras y botón de actualizar
+------------------------------------------------------------------ */
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(21, 101, 192, 0.09), 0 1px 2px rgba(16, 24, 40, 0.05);
+  padding: 30px 40px;
+  margin-bottom: 26px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+.hero-banner-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.hero-logo { position: relative; z-index: 1; display: block; height: auto; }
+.hero-logo-left { width: 190px; justify-self: start; }
+.hero-logo-right { width: 210px; justify-self: end; }
+.hero-center { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.hero-pills { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.hero-banner .stat-pill { border-radius: 14px; padding: 12px 30px; min-width: 150px; background: #1260b0; }
+.hero-banner .stat-pill-value { font-size: var(--text-3xl); letter-spacing: -0.5px; }
+.hero-banner .stat-pill-label { font-size: var(--text-base); color: #fff; margin-top: 2px; }
+.hero-meta { margin-top: 14px; font-size: var(--text-sm); color: var(--muted); line-height: 1.55; }
+.hero-sync {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: var(--text-base);
+  padding: 10px 24px;
+  border: none;
+  background: #e8f1fc;
+  color: #0b5cc2;
+}
+.hero-sync:hover:not(:disabled) { background: #d6e8fb; }
+@media (max-width: 760px) {
+  .hero-banner { grid-template-columns: 1fr 1fr; grid-template-areas: "l r" "c c"; padding: 22px 20px; gap: 18px 12px; }
+  .hero-logo-left { grid-area: l; width: min(150px, 100%); }
+  .hero-logo-right { grid-area: r; width: min(160px, 100%); }
+  .hero-center { grid-area: c; }
+  .hero-banner .stat-pill { min-width: 118px; padding: 10px 16px; }
+  .hero-banner .stat-pill-value { font-size: var(--text-2xl); }
+}

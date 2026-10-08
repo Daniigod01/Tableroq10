@@ -62,10 +62,24 @@ export default function DashboardHome({ courses, lastSync }) {
       <h1>Seguimiento de cursos</h1>
       <p className="hero-subtitle">Una mirada al avance de cada proceso de formación.</p>
 
-      <div className="stats-bar">
-        <img src="/logo-pago-resultados.png" alt="Pago por Resultados" className="stats-bar-logo" />
-        <div className="stats-bar-right">
-          <div className="stats-bar-numbers">
+      <div className="hero-banner">
+        <svg className="hero-banner-bg" viewBox="0 0 1100 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <path d="M0 90 C 120 110 250 170 430 240 L0 240 Z" fill="#eaf3fd" />
+          <path d="M0 175 C 90 160 200 175 330 240 L0 240 Z" fill="#d6e8fb" />
+          <path d="M0 236 C 120 188 285 188 400 240" fill="none" stroke="#1565c0" strokeWidth="2.5" />
+          <path d="M1100 80 C 980 100 850 170 700 240 L1100 240 Z" fill="#eaf3fd" />
+          <path d="M1100 165 C 1010 150 920 170 810 240 L1100 240 Z" fill="#d6e8fb" />
+          <path d="M700 240 C 800 196 950 192 1100 236" fill="none" stroke="#19a7f0" strokeWidth="2.5" />
+        </svg>
+
+        <img
+          src="/logo-pago-resultados-transparente.png"
+          alt="Pago por Resultados"
+          className="hero-logo hero-logo-left"
+        />
+
+        <div className="hero-center">
+          <div className="hero-pills">
             <div className="stat-pill">
               <div className="stat-pill-value">{courses.length}</div>
               <div className="stat-pill-label">cursos</div>
@@ -75,7 +89,8 @@ export default function DashboardHome({ courses, lastSync }) {
               <div className="stat-pill-label">inscripciones</div>
             </div>
           </div>
-          <div className="stats-bar-meta">
+
+          <div className="hero-meta">
             {lastSync ? (
               <>
                 Última actualización
@@ -87,22 +102,25 @@ export default function DashboardHome({ courses, lastSync }) {
             ) : (
               'Sin sincronizar todavía'
             )}
-            <br />
-            <button
-              type="button"
-              className="sync-now-btn"
-              onClick={handleSyncNow}
-              disabled={syncing}
-            >
-              {syncing ? 'Actualizando… puede tardar un momento' : 'Actualizar ahora'}
-            </button>
-            {syncMessage && (
-              <div className={`sync-message sync-message-${syncMessage.type}`}>
-                {syncMessage.text}
-              </div>
-            )}
           </div>
+
+          <button type="button" className="sync-now-btn hero-sync" onClick={handleSyncNow} disabled={syncing}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M21 12a9 9 0 1 1-3-6.7" />
+              <path d="M21 4v5h-5" />
+            </svg>
+            {syncing ? 'Actualizando… puede tardar un momento' : 'Actualizar ahora'}
+          </button>
+          {syncMessage && (
+            <div className={`sync-message sync-message-${syncMessage.type}`}>{syncMessage.text}</div>
+          )}
         </div>
+
+        <img
+          src="/logo-gente-estrategica-cft.png"
+          alt="Gente Estratégica – Centro de Formación para el Trabajo"
+          className="hero-logo hero-logo-right"
+        />
       </div>
 
       <div className="course-grid">
